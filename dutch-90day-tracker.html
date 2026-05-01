@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>🇳🇱 90 يوم هولندي</title>
+<style>
+:root{
+  --or:#E55A00;--bl:#003893;--gr:#0A8F5C;
+  --or2:#FF7A2F;--bl2:#1A55C8;
+  --or-l:#FFF3ED;--bl-l:#EEF3FF;--gr-l:#E8FAF3;
+  --bg:#F2F0EB;--card:#fff;--txt:#16120A;
+  --mu:#6B7280;--bd:#E2E0DB;--r:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--txt);direction:rtl;min-height:100vh;font-size:15px}
+
+/* ── TOPBAR ── */
+.tb{background:var(--bl);position:sticky;top:0;z-index:100;box-shadow:0 2px 14px rgba(0,0,0,.22)}
+.tb-stripe{height:4px;background:linear-gradient(90deg,var(--or) 33%,#fff 33%,#fff 66%,var(--bl) 66%)}
+.tb-row{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;gap:8px}
+.tb-logo{color:#fff;font-size:17px;font-weight:800;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.tb-chips{display:flex;gap:7px}
+.chip{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:4px 11px;border-radius:16px;font-size:12px;font-weight:700;white-space:nowrap}
+.chip b{color:#FFB07A}
+
+/* ── HERO ── */
+.hero{max-width:680px;margin:0 auto;padding:14px 12px 0}
+
+/* progress card */
+.pcard{background:var(--card);border-radius:var(--r);border:1px solid var(--bd);padding:16px;margin-bottom:12px}
+.pcard-top{display:flex;align-items:center;gap:14px}
+.ring-wrap{flex-shrink:0;position:relative;width:76px;height:76px}
+.ring-wrap svg{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:#EEF3FF;stroke-width:7}
+.ring-fg{fill:none;stroke:url(#rg);stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset .7s ease}
+.ring-pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:var(--bl)}
+.pinfo{flex:1;min-width:0}
+.pinfo-title{font-size:15px;font-weight:800;margin-bottom:3px}
+.pinfo-sub{font-size:12px;color:var(--mu);margin-bottom:8px}
+.pbar-bg{background:#EEF3FF;border-radius:8px;height:8px;overflow:hidden}
+.pbar-fg{height:100%;background:linear-gradient(90deg,var(--or),var(--bl));border-radius:8px;transition:width .6s}
+.pbar-txt{font-size:11px;color:var(--mu);margin-top:4px;direction:ltr;text-align:left}
+
+/* month mini bars */
+.mbars{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--bd)}
+.mbar-item{text-align:center}
+.mbar-label{font-size:11px;font-weight:700;margin-bottom:5px}
+.mbar-label.m1{color:var(--bl)} .mbar-label.m2{color:var(--or)} .mbar-label.m3{color:var(--gr)}
+.mbar-bg{background:#F0F0EE;border-radius:6px;height:6px;overflow:hidden;margin-bottom:3px}
+.mbar-fill{height:100%;border-radius:6px;transition:width .5s}
+.mbar-fill.m1{background:var(--bl)} .mbar-fill.m2{background:var(--or)} .mbar-fill.m3{background:var(--gr)}
+.mbar-pct{font-size:10px;color:var(--mu)}
+
+/* ── FILTER TABS ── */
+.tabs{display:flex;gap:0;background:var(--card);border-radius:var(--r);border:1px solid var(--bd);overflow:hidden;margin-bottom:12px}
+.tab{flex:1;padding:10px 4px;border:none;background:none;cursor:pointer;font-size:12px;font-weight:600;color:var(--mu);transition:all .2s;text-align:center;border-left:1px solid var(--bd)}
+.tab:last-child{border-left:none}
+.tab.on{background:var(--bl);color:#fff}
+
+/* ── MONTH HEADER ── */
+.mhdr{border-radius:var(--r) var(--r) 0 0;padding:14px 16px;color:#fff;margin-top:14px;position:relative;overflow:hidden}
+.mhdr::before{content:'🇳🇱';position:absolute;left:-8px;top:-8px;font-size:90px;opacity:.07}
+.mhdr.m1{background:linear-gradient(135deg,#003893,#1A55C8)}
+.mhdr.m2{background:linear-gradient(135deg,#C44E00,#E55A00)}
+.mhdr.m3{background:linear-gradient(135deg,#065F42,#0A8F5C)}
+.mhdr-title{font-size:17px;font-weight:800;display:flex;align-items:center;gap:8px;margin-bottom:3px}
+.mhdr-goal{font-size:12px;opacity:.88;line-height:1.5}
+.mhdr-pills{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.mpill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600}
+
+/* ── WEEK SECTION ── */
+.wsec{border:1px solid var(--bd);border-top:0;background:var(--card)}
+.wsec:last-of-type{border-radius:0 0 var(--r) var(--r);margin-bottom:6px}
+.whdr{display:flex;align-items:center;gap:8px;padding:11px 14px;cursor:pointer;border-bottom:1px solid transparent;user-select:none}
+.whdr.open{border-bottom-color:var(--bd)}
+.wbadge{padding:3px 11px;border-radius:10px;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.wb1{background:var(--bl)} .wb2{background:#7C4F00} .wb3{background:var(--or)} .wb4{background:var(--gr)}
+.wb5{background:#1E3A8A} .wb6{background:#854D0E} .wb7{background:#9A3412} .wb8{background:#065F42}
+.wb9{background:#1E3A8A} .wb10{background:#6D28D9} .wb11{background:#B91C1C} .wb12{background:#0A8F5C}
+.wtitle{font-size:13px;font-weight:700;flex:1;min-width:0}
+.wcount{font-size:11px;color:var(--mu);white-space:nowrap}
+.warrow{font-size:14px;color:var(--mu);transition:transform .3s;flex-shrink:0}
+.whdr.open .warrow{transform:rotate(180deg)}
+.wbody{display:none;padding:10px}
+.wbody.open{display:block}
+
+/* ── TASK CARD ── */
+.tc{background:#FAFAF8;border:1.5px solid var(--bd);border-radius:10px;margin-bottom:8px;overflow:hidden;cursor:pointer;transition:border-color .2s,background .2s;-webkit-tap-highlight-color:transparent}
+.tc:active{transform:scale(.99)}
+.tc.done{background:#F0FBF6;border-color:#6EE7B7}
+.tc.done .tnl{color:var(--gr)}
+.tc-inner{display:flex;align-items:stretch}
+.tc-side{width:62px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:9px;background:#F4F2EE;border-left:1px solid var(--bd);flex-shrink:0}
+.tc.done .tc-side{background:#E6F9F0;border-color:#A7F3D0}
+.dnum{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff}
+.d-m1{background:var(--bl)} .d-m2{background:var(--or)} .d-m3{background:var(--gr)}
+.cbox{width:26px;height:26px;border-radius:50%;border:2px solid var(--bd);display:flex;align-items:center;justify-content:center;transition:all .2s;background:#fff}
+.tc.done .cbox{background:var(--gr);border-color:var(--gr)}
+.cmark{font-size:13px;opacity:0;transition:opacity .2s;color:#fff}
+.tc.done .cmark{opacity:1}
+.tc-body{padding:11px 13px;flex:1;min-width:0}
+.tc-meta{display:flex;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap}
+.dlabel{font-size:11px;color:var(--mu);font-weight:600}
+.ttag{padding:2px 8px;border-radius:7px;font-size:10px;font-weight:700}
+.t-vo{background:#DBEAFE;color:#1E40AF}
+.t-gr{background:#EDE9FE;color:#5B21B6}
+.t-sp{background:#DCFCE7;color:#166534}
+.t-wr{background:#FEF9C3;color:#854D0E}
+.t-rv{background:#F1F5F9;color:#475569}
+.t-si{background:#FFF0E8;color:#9A3412}
+.t-li{background:#FCE7F3;color:#9D174D}
+.t-ch{background:#FFF7ED;color:#C2410C}
+.tnl{font-size:13px;font-weight:700;direction:ltr;text-align:left;margin-bottom:4px;line-height:1.4;color:var(--bl);word-break:break-word}
+.tar{font-size:13px;color:var(--txt);margin-bottom:5px;line-height:1.55}
+.thow{font-size:11px;color:var(--mu);line-height:1.6;border-top:1px dashed var(--bd);padding-top:6px;margin-top:2px}
+.tc.done .thow{color:#059669}
+
+/* ── DONE BANNER ── */
+.done-banner{background:linear-gradient(135deg,var(--bl),var(--gr));color:#fff;border-radius:var(--r);padding:20px;text-align:center;margin-bottom:12px;display:none}
+.done-banner.show{display:block}
+
+/* ── RESET ── */
+.reset-btn{background:none;border:1px solid #FCA5A5;color:#DC2626;padding:7px 14px;border-radius:9px;font-size:12px;cursor:pointer;width:100%;margin-top:10px}
+
+/* ── CONFETTI ── */
+.cfwrap{position:fixed;inset:0;pointer-events:none;z-index:999;display:none}
+.cfwrap.show{display:block}
+
+/* ── PHILOSOPHY BOX ── */
+.phil{background:var(--card);border-radius:var(--r);border:1px solid var(--bd);padding:14px;margin-bottom:12px}
+.phil-title{font-size:13px;font-weight:800;color:var(--bl);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.phil-item{background:var(--bl-l);border-radius:8px;padding:9px 11px;font-size:12px;border-right:3px solid var(--bl)}
+.phil-item b{display:block;font-size:11px;color:var(--bl);margin-bottom:2px}
+
+@keyframes fall{0%{transform:translateY(-20px) rotate(0) scale(1)}100%{transform:translateY(110vh) rotate(720deg) scale(.5);opacity:0}}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+.tc.just-done{animation:pop .3s ease}
+</style>
+</head>
+<body>
+
+<div class="tb">
+  <div class="tb-stripe"></div>
+  <div class="tb-row">
+    <div class="tb-logo">🇳🇱 90 يوم هولندي</div>
+    <div class="tb-chips">
+      <div class="chip">✅ <b id="dc">0</b>/90</div>
+      <div class="chip">🔥 <b id="sc">0</b></div>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+
+  <div class="done-banner" id="doneBanner">
+    <div style="font-size:38px;margin-bottom:8px">🏆</div>
+    <div style="font-size:18px;font-weight:800;margin-bottom:5px">Gefeliciteerd! أكملت الـ90 يوم!</div>
+    <div style="font-size:13px;opacity:.9">أنت الآن تتكلم هولندي في الحياة اليومية — Succes met het volgende niveau! 🎉</div>
+  </div>
+
+  <div class="pcard">
+    <div class="pcard-top">
+      <div class="ring-wrap">
+        <svg width="76" height="76" viewBox="0 0 76 76">
+          <defs>
+            <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#E55A00"/>
+              <stop offset="100%" stop-color="#003893"/>
+            </linearGradient>
+          </defs>
+          <circle class="ring-bg" cx="38" cy="38" r="31"/>
+          <circle class="ring-fg" id="rf" cx="38" cy="38" r="31" stroke-dasharray="195" stroke-dashoffset="195"/>
+        </svg>
+        <div class="ring-pct" id="rp">0%</div>
+      </div>
+      <div class="pinfo">
+        <div class="pinfo-title">تقدّمك الكلي 📊</div>
+        <div class="pinfo-sub">10 دقائق يومياً × 90 يوم = هولندي حياتي 💪</div>
+        <div class="pbar-bg"><div class="pbar-fg" id="pb" style="width:0%"></div></div>
+        <div class="pbar-txt" id="pt">0 من 90 يوم</div>
+      </div>
+    </div>
+    <div class="mbars">
+      <div class="mbar-item">
+        <div class="mbar-label m1">الشهر 1 🌱</div>
+        <div class="mbar-bg"><div class="mbar-fill m1" id="mb1" style="width:0%"></div></div>
+        <div class="mbar-pct" id="mp1">0/30</div>
+      </div>
+      <div class="mbar-item">
+        <div class="mbar-label m2">الشهر 2 🚀</div>
+        <div class="mbar-bg"><div class="mbar-fill m2" id="mb2" style="width:0%"></div></div>
+        <div class="mbar-pct" id="mp2">0/30</div>
+      </div>
+      <div class="mbar-item">
+        <div class="mbar-label m3">الشهر 3 💬</div>
+        <div class="mbar-bg"><div class="mbar-fill m3" id="mb3" style="width:0%"></div></div>
+        <div class="mbar-pct" id="mp3">0/30</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phil">
+    <div class="phil-title">🧠 سر هذه الخطة — مبنية على العلم</div>
+    <div class="phil-grid">
+      <div class="phil-item"><b>🔁 Spaced Repetition</b>كل كلمة تُراجَع بعد 2 ثم 7 ثم 14 يوم</div>
+      <div class="phil-item"><b>🌀 Spiral Curriculum</b>نفس الموضوع يعود بعمق أكبر كل شهر</div>
+      <div class="phil-item"><b>⚡ 60% Output</b>كلام + كتابة + محاكاة أكثر من حفظ</div>
+      <div class="phil-item"><b>🎯 Real-life Tasks</b>كل تاسك مرتبط بموقف حقيقي في أرنهيم</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab on" onclick="ft(0,this)">الكل</div>
+    <div class="tab" onclick="ft(1,this)">شهر 1</div>
+    <div class="tab" onclick="ft(2,this)">شهر 2</div>
+    <div class="tab" onclick="ft(3,this)">شهر 3</div>
+  </div>
+
+  <div id="main"></div>
+
+  <button class="reset-btn" onclick="doReset()">🔄 إعادة تعيين كل التقدم</button>
+  <div style="height:28px"></div>
+
+</div>
+
+<div class="cfwrap" id="cf"></div>
+
+<script>
+const T={
+  vo:'📚 مفردات',gr:'🧠 قاعدة',sp:'🗣️ كلام',
+  wr:'✍️ كتابة',rv:'🔁 مراجعة',si:'🎭 محاكاة',li:'🎧 استماع',ch:'🏆 تحدي'
+};
+const TC={vo:'t-vo',gr:'t-gr',sp:'t-sp',wr:'t-wr',rv:'t-rv',si:'t-si',li:'t-li',ch:'t-ch'};
+
+const TASKS=[
+// ═══════════════ MONTH 1 ═══════════════
+// W1 - التحيات
+{d:1,m:1,w:1,t:'vo',nl:'Schrijf de 7 dagen van de week',ar:'اكتب أيام الأسبوع الـ7 بالهولندية وعلّقها على الثلاجة',hw:'maandag / dinsdag / woensdag / donderdag / vrijdag / zaterdag / zondag — كررها 3 مرات بصوت عالٍ 📅'},
+{d:2,m:1,w:1,t:'vo',nl:'Leer 5 begroetingen + uitdrukkingen',ar:'احفظ: Hallo / Goedemorgen / Goedemiddag / Goedenavond / Doei',hw:'قل كل تحية أمام المرآة 5 مرات — ركز على نطق G مثل الخاء 🪞'},
+{d:3,m:1,w:1,t:'sp',nl:'Oefen zelfintroductie 10x hardop',ar:'قدّم نفسك 10 مرات بصوت عالٍ: اسمك + بلدك + مدينتك',hw:'Ik heet... / Ik kom uit... / Ik woon in Arnhem — تخيل شخصاً أمامك 👋'},
+{d:4,m:1,w:1,t:'vo',nl:'Leer de getallen 1–10 + schrijf ze op',ar:'احفظ الأرقام 1-10 واكتبها 3 مرات كل رقم',hw:'één twee drie vier vijf zes zeven acht negen tien — عدّ كل شيء حولك اليوم بالهولندية 🔢'},
+{d:5,m:1,w:1,t:'gr',nl:'Leer: Hoe gaat het? + 4 antwoorden',ar:'تعلم السؤال والإجابة عن الحال + قاعدة Ik ben',hw:'Goed! / Prima! / Niet zo goed / Uitstekend! — فعل zijn: Ik ben / Jij bent / Hij is 💬'},
+{d:6,m:1,w:1,t:'wr',nl:'Schrijf 3 zinnen over jezelf',ar:'اكتب 3 جمل عن نفسك بدون نظر في الهاتف',hw:'اسمك + بلدك + عمرك — Ik heet X. Ik kom uit Y. Ik ben Z jaar oud. ✍️'},
+{d:7,m:1,w:1,t:'si',nl:'Simulatie: ontmoet een collega voor het eerst',ar:'محاكاة: قابل زميلاً جديداً — قدّم نفسك + اسأله عن اسمه + وداع',hw:'استخدم شات المدرب الذكي — لا كلمة إنجليزية! فقط هولندي 🎭'},
+
+// W2 - الكافيه
+{d:8,m:1,w:2,t:'vo',nl:'Leer 7 café-woorden',ar:'تعلم: koffie / thee / water / melk / suiker / broodje / rekening',hw:'قل كل كلمة 3 مرات مع تصور الشيء أمامك — هذا يثبتها في الذاكرة ☕'},
+{d:9,m:1,w:2,t:'gr',nl:'Leer: "Ik wil graag..." + "Mag ik...?"',ar:'تعلم صيغتي الطلب الأساسيتين في الكافيه والحياة اليومية',hw:'Ik wil graag een koffie. / Mag ik de rekening? — الفرق: wil graag أودّ / Mag ik أستطيع؟ 🗣️'},
+{d:10,m:1,w:2,t:'vo',nl:'Leer de getallen 11–20',ar:'احفظ الأرقام 11-20 + كيف تقرأ الأسعار',hw:'elf twaalf dertien veertien vijftien zestien zeventien achttien negentien twintig 💶'},
+{d:11,m:1,w:2,t:'vo',nl:'Leer 5 Nederlandse eten + uitdrukkingen',ar:'تعلم: kroket / stroopwafel / haring / lekker / alsjeblieft',hw:'lekker = لذيذ / alsjeblieft = من فضلك / graag = بكل سرور — أكثر 3 كلمات ستقولها كل يوم! 🧇'},
+{d:12,m:1,w:2,t:'sp',nl:'Oefen de hele bestelsequentie in café',ar:'تدرب على الطلب الكامل من A إلى Z بصوت عالٍ',hw:'Goedemorgen! → Een koffie alsjeblieft → Hoeveel kost dat? → Dank je wel! Doei! — 5 مرات متواصلة 🎯'},
+{d:13,m:1,w:2,t:'li',nl:'Luister 3 min Nederlands op YouTube',ar:'استمع لإعلان هولندي 3 دقائق — لا تترجم، فقط استمع',hw:'ابحث "Albert Heijn reclame 2024" — حاول تقطع كلمة واحدة مألوفة 🎧'},
+{d:14,m:1,w:2,t:'si',nl:'🎭 Echte uitdaging: ga naar een café in Arnhem!',ar:'تحدي حقيقي: اذهب لكافيه في أرنهيم واطلب بالهولندية فقط!',hw:'هذا التاسك الأهم في الأسبوع — حتى لو أخطأت، ابتسم وحاول! De barista waardeert het 🏆'},
+
+// W3 - العمل
+{d:15,m:1,w:3,t:'vo',nl:'Leer 7 werk-woorden',ar:'تعلم: collega / kantoor / vergadering / manager / werken / pauze / project',hw:'استخدمها غداً في العمل — حتى لو في ذهنك فقط 💼'},
+{d:16,m:1,w:3,t:'vo',nl:'Leer de 12 maanden + seizoenen',ar:'احفظ أشهر السنة + الفصول الأربعة',hw:'jan feb mrt apr mei jun jul aug sep okt nov dec — لente zomer herfst winter 📆'},
+{d:17,m:1,w:3,t:'gr',nl:'Leer kloktijden: hoe laat is het?',ar:'تعلم قراءة الساعة بالهولندية — مختلفة عن العربية!',hw:'twee uur / half drie (=2:30) / kwart over vier (=4:15) / kwart voor vijf (=4:45) — انظر لساعتك كل ساعة ⏰'},
+{d:18,m:1,w:3,t:'sp',nl:'Oefen: hulp vragen op het werk',ar:'تدرب على طلب المساعدة في العمل بصوت عالٍ',hw:'Kun jij me helpen? / Ik begrijp het niet. / Kun je dat herhalen? / Wat betekent...? 🙏'},
+{d:19,m:1,w:3,t:'vo',nl:'Leer 6 werkwoorden (tegenwoordige tijd)',ar:'تعلم 6 أفعال أساسية وتصريفها في المضارع',hw:'maken / sturen / bellen / werken / gaan / komen — Ik werk / Jij werkt / Hij werkt ⚡'},
+{d:20,m:1,w:3,t:'wr',nl:'Schrijf je dagschema in het Nederlands',ar:'اكتب جدولك اليومي الكامل بالهولندية',hw:'Om 7 uur sta ik op. Om 9 uur werk ik. Om 12 uur lunch ik. Om 18 uur kom ik thuis. 📋'},
+{d:21,m:1,w:3,t:'rv',nl:'🔁 Herhaling weken 1–3 + woordenlijst',ar:'راجع كل كلمات الأسابيع الثلاثة — اكتبها من الذاكرة',hw:'هدف: 30 كلمة بدون نظر — إذا نسيت أقل من 5 فأنت في المسار الصحيح! ✅'},
+
+// W4 - المدينة + اختبار الشهر 1
+{d:22,m:1,w:4,t:'vo',nl:'Leer 6 plaatsen in de stad',ar:'تعلم: supermarkt / station / ziekenhuis / apotheek / gemeente / bibliotheek',hw:'ابحث عن هذه الأماكن على خريطة أرنهيم — يصبح التعلم حقيقياً 🏙️'},
+{d:23,m:1,w:4,t:'gr',nl:'Leer de weg vragen + beschrijven',ar:'تعلم السؤال عن الطريق + وصف الاتجاهات',hw:'Waar is de [supermarkt]? → Links / Rechts / Rechtdoor / Aan het einde van de straat 🗺️'},
+{d:24,m:1,w:4,t:'vo',nl:'Leer kleuren + 5 bijvoeglijke naamwoorden',ar:'تعلم 6 ألوان + صفات: groot klein mooi lelijk nieuw oud',hw:'rood blauw groen geel wit zwart — صف 5 أشياء في غرفتك باستخدام لون + صفة 🎨'},
+{d:25,m:1,w:4,t:'vo',nl:'Leer vervoer + OV-woorden',ar:'تعلم: bus / trein / fiets / tram / OV-chipkaart / spoor',hw:'آخر مرة ركبت فيها الباص — ما كان يجب عليك قوله بالهولندية؟ 🚌'},
+{d:26,m:1,w:4,t:'sp',nl:'Oefen noodgevallen-zinnen uit het hoofd',ar:'احفظ جمل الطوارئ واقلها بسرعة بدون تفكير',hw:'Help! / Bel 112! / Ik voel me niet goed. / Waar is het ziekenhuis? — سرعة النطق مهمة هنا 🚨'},
+{d:27,m:1,w:4,t:'li',nl:'Luister: NPO Radio 1 — 5 minuten',ar:'استمع لراديو هولندي 5 دقائق',hw:'ابحث NPO Radio 1 على يوتيوب أو التطبيق — حاول تفهم الموضوع العام فقط 📻'},
+{d:28,m:1,w:4,t:'rv',nl:'🔁 Grote herhaling Maand 1',ar:'مراجعة شاملة للشهر الأول — كل المواضيع',hw:'تحيات + كافيه + عمل + مدينة — اكتب 10 جمل تجمع كل هذه المواضيع ✍️'},
+{d:29,m:1,w:4,t:'si',nl:'🎭 Simulatie: een dag in Arnhem',ar:'محاكاة يوم كامل: كافيه + سوبرماركت + باص + اسأل عن الطريق',hw:'افعلها في العالم الحقيقي أو مع المدرب الذكي — كل الحوار بالهولندية فقط! 🎯'},
+{d:30,m:1,w:4,t:'ch',nl:'🏆 Maand 1 Eindtest!',ar:'اختبار نهاية الشهر الأول — قيّم نفسك بصدق',hw:'قدّم نفسك + اطلب في كافيه + صف طريقاً + قل 5 جمل ماضية — اتفضل يا بطل! 🏆'},
+
+// ═══════════════ MONTH 2 ═══════════════
+// W5 - العائلة
+{d:31,m:2,w:5,t:'vo',nl:'Leer 8 familieleden',ar:'تعلم: vader / moeder / broer / zus / kind / man / vrouw / vriend(in)',hw:'mijn vader / jouw moeder / zijn broer — الملكية مين/jouw/zijn/haar 👨‍👩‍👧‍👦'},
+{d:32,m:2,w:5,t:'gr',nl:'Leer bezittelijke voornaamwoorden',ar:'تعلم ضمائر الملكية: mijn / jouw / zijn / haar / ons / jullie / hun',hw:'Mijn collega is aardig. Jouw kantoor is groot. — استخدمها مع كلمات تعرفها بالفعل 🔑'},
+{d:33,m:2,w:5,t:'vo',nl:'Leer 7 hobby- en activiteitswoorden',ar:'تعلم: lezen / sporten / koken / fietsen / reizen / muziek / films',hw:'فعل houden van = يحب: Ik hou van fietsen. — ما هي هوايتك؟ قلها بالهولندية 🎸'},
+{d:34,m:2,w:5,t:'vo',nl:'Leer kamers + meubels in huis',ar:'تعلم: kamer / keuken / badkamer / slaapkamer / bank / tafel / stoel / raam',hw:'er is / er zijn = يوجد: Er is een keuken. Er zijn 3 kamers. — صف بيتك 🏠'},
+{d:35,m:2,w:5,t:'sp',nl:'Beschrijf jezelf en je familie (5 zinnen)',ar:'قل 5 جمل عن نفسك وعائلتك بصوت عالٍ بدون توقف',hw:'Ik heb een broer. Hij woont in... Hij is... jaar oud. Hij houdt van... — حاول بدون توقف 🗣️'},
+{d:36,m:2,w:5,t:'wr',nl:'Schrijf een berichtje over je weekend',ar:'اكتب رسالة نصية قصيرة عن عطلة نهاية الأسبوع بالهولندية',hw:'Dit weekend ga ik... / Ik ben thuis geweest. / Ik heb... gedaan. — حتى 3 جمل كافية ✍️'},
+{d:37,m:2,w:5,t:'si',nl:'🎭 Simulatie: ontmoet een buur in Arnhem',ar:'محاكاة: تحدث مع جار جديد — عائلتك + منزلك + هواياتك',hw:'استخدم كل ما تعلمته هذا الأسبوع — ابدأ بـ Goedemiddag! 🏘️'},
+
+// W6 - الطقس
+{d:38,m:2,w:6,t:'vo',nl:'Leer het weer beschrijven (8 woorden)',ar:'تعلم: regenen / sneeuwen / zonnig / bewolkt / winderig / koud / warm / nat',hw:'Het regent. / Het is zonnig. / Het waait. — het + فعل الطقس = قاعدة ذهبية ☁️'},
+{d:39,m:2,w:6,t:'gr',nl:'Leer: "het is..." + temperatuur lezen',ar:'تعلم وصف درجة الحرارة + صياغة جملة الطقس الكاملة',hw:'Het is 15 graden. / Het is koud vandaag. / Het is warmer dan gisteren. 🌡️'},
+{d:40,m:2,w:6,t:'vo',nl:'Leer 5 seizoenactiviteiten + uitdrukkingen',ar:'تعلم: schaatsen / wandelen / picknicken / Typisch Nederlands! / Wat een weer!',hw:'Typisch Nederlands! = الجملة الأكثر استخداماً عند الهولنديين عن الطقس 😄'},
+{d:41,m:2,w:6,t:'sp',nl:'Oefen small talk over het weer (3 min)',ar:'تدرب على محادثة قصيرة عن الطقس — أهم مهارة اجتماعية في هولندا!',hw:'Gek weer, hè? / Ja, het regent alweer! / Gelukkig is het morgen beter. — تدرب مع الصوت العالي 💬'},
+{d:42,m:2,w:6,t:'li',nl:'Kijk de weersvoorspelling op NOS.nl',ar:'شاهد توقعات الطقس الهولندية على موقع NOS',hw:'ابحث "NOS weerbericht" — حاول تفهم 2-3 كلمات من التقرير 🌦️'},
+{d:43,m:2,w:6,t:'rv',nl:'🔁 Herhaling: familie + hobby + weer',ar:'راجع كلمات الأسابيع 5 و6 معاً',hw:'اكتب فقرة قصيرة: أنت + عائلتك + طقس اليوم + ماذا ستفعل بسبب الطقس 🔄'},
+{d:44,m:2,w:6,t:'si',nl:'🎭 Real challenge: praatje in de bus!',ar:'تحدي حقيقي: ابدأ محادثة طقس مع شخص في الباص أو في الشارع!',hw:'قل فقط: Gek weer, hè? أو Mooi weer vandaag! — ابتسم وانتظر رده 🏆'},
+
+// W7 - الصحة
+{d:45,m:2,w:7,t:'vo',nl:'Leer 8 lichaamsdelen',ar:'تعلم: hoofd / nek / arm / been / buik / rug / hand / voet',hw:'Mijn [lichaamsdeel] doet pijn = يؤلمني — قلها 5 مرات مع تحريك الجزء المقابل 🩺'},
+{d:46,m:2,w:7,t:'vo',nl:'Leer 6 ziektes en klachten',ar:'تعلم: koorts / hoesten / keelpijn / hoofdpijn / moe / griep',hw:'Ik heb + مرض: Ik heb griep. / Ik heb koorts. / Ik ben moe. — ركز على النطق الصحيح 🤒'},
+{d:47,m:2,w:7,t:'gr',nl:'Leer: een afspraak maken per telefoon',ar:'تعلم كيف تحجز موعد بالهاتف — أهم مهارة عملية!',hw:'Goedemorgen, ik wil graag een afspraak maken. / Wanneer kunt u komen? / Dinsdag om 14 uur? 📞'},
+{d:48,m:2,w:7,t:'vo',nl:'Leer apotheek-woorden (6)',ar:'تعلم: pijnstiller / recept / hoestdrank / pleister / zalf / bloeddruk',hw:'Ik zoek iets voor [klacht]. / Heeft u dit recept? — جرب هذه الجمل في الصيدلية القادمة 💊'},
+{d:49,m:2,w:7,t:'sp',nl:'Oefen: symptomen beschrijven bij de dokter',ar:'تدرب على وصف أعراضك للطبيب بالهولندية',hw:'Mijn rug doet pijn. / Ik heb al 3 dagen koorts. / Ik voel me niet goed. — صوت عالٍ 5 مرات 🏥'},
+{d:50,m:2,w:7,t:'wr',nl:'Schrijf 5 zinnen: hoe voel je je vandaag?',ar:'اكتب 5 جمل عن صحتك وكيف تشعر اليوم',hw:'Vandaag voel ik me... / Ik heb... / Mijn ... doet pijn. / Gelukkig ben ik... — صادق مع نفسك ✍️'},
+{d:51,m:2,w:7,t:'si',nl:'🎭 Simulatie: bel de huisarts!',ar:'محاكاة: اتصل بالطبيب واحجز موعداً + اشرح أعراضك',hw:'هذا التاسك الأصعب حتى الآن — لكنه الأهم للحياة في هولندا! جرب مع المدرب الذكي 📞'},
+
+// W8 - الزمن الماضي
+{d:52,m:2,w:8,t:'gr',nl:'Leer: perfectum (verleden tijd) basis',ar:'تعلم الزمن الماضي — أهم قاعدة في الشهر الثاني!',hw:'hebben + ge- + stam: Ik heb gewerkt / gegeten / geslapen / gekocht 📚'},
+{d:53,m:2,w:8,t:'vo',nl:'Leer 10 werkwoorden in het perfectum',ar:'تعلم 10 أفعال شائعة في الماضي مع صيغها',hw:'eten→gegeten / drinken→gedronken / gaan→gegaan / kopen→gekocht / zien→gezien / maken→gemaakt 🕐'},
+{d:54,m:2,w:8,t:'gr',nl:'Perfectum met "zijn" — beweging & verandering',ar:'تعلم متى نستخدم zijn بدل hebben في الماضي',hw:'Ik ben gegaan / gekomen / gevallen / geweest — قاعدة: أفعال الحركة والتغيير = zijn 🚶'},
+{d:55,m:2,w:8,t:'sp',nl:'Vertel wat je gisteren gedaan hebt (5 zinnen)',ar:'قل 5 جمل عما فعلته بالأمس بصوت عالٍ بدون توقف',hw:'Gisteren heb ik... gegeten / gewerkt / gezien. Ik ben naar... gegaan. — بدون نظر للهاتف! 🗣️'},
+{d:56,m:2,w:8,t:'wr',nl:'Schrijf je weekendverhaal (6 zinnen)',ar:'اكتب قصة عطلة نهاية الأسبوع — 6 جمل ماضية',hw:'Zaterdag ben ik... gegaan. Ik heb ... gedaan. Het was... — حاول تستخدم hebben و zijn معاً ✍️'},
+{d:57,m:2,w:8,t:'rv',nl:'🔁 Grote herhaling Maand 2',ar:'مراجعة شاملة: عائلة + طقس + صحة + ماضي',hw:'اكتب فقرة: أمس كنت مريضاً + طلبت موعداً طبياً + الطقس كان سيئاً — اجمع كل شيء 🔄'},
+{d:58,m:2,w:8,t:'si',nl:'🎭 Simulatie: vertell je week aan een collega',ar:'محاكاة: احكِ لزميلك عن أسبوعك — بالماضي + الطقس + صحتك',hw:'كل الحوار بالهولندية — 3 دقائق متواصلة بدون توقف هو الهدف! 💬'},
+{d:59,m:2,w:8,t:'ch',nl:'🏆 Maand 2 Eindtest!',ar:'اختبار نهاية الشهر الثاني — قيّم تطورك الحقيقي',hw:'قصة في الماضي + وصف عائلتك + موقف صحي + small talk طقس — أنت رائع! 🏆'},
+{d:60,m:2,w:8,t:'ch',nl:'🌟 Bonus: echte Nederlandse conversatie proberen',ar:'تحدي مكافأة: تحدث مع هولندي حقيقي لمدة دقيقتين',hw:'HelloTalk / زميل هولندي / موظف في المتجر — أي شخص! حتى لو كسر الإنجليزية لا بأس ⭐'},
+
+// ═══════════════ MONTH 3 ═══════════════
+// W9 - الآراء والمشاعر
+{d:61,m:3,w:9,t:'gr',nl:'Leer: mening geven — Ik vind / Ik denk',ar:'تعلم كيف تعبر عن رأيك بالهولندية',hw:'Ik vind het leuk / mooi / saai. / Ik denk dat het goed is. / Volgens mij... 💭'},
+{d:62,m:3,w:9,t:'vo',nl:'Leer 8 gevoelswoorden',ar:'تعلم: blij / verdrietig / boos / bang / gestrest / opgewonden / moe / tevreden',hw:'Ik voel me... / Ik ben... — صف مشاعرك الآن بجملة واحدة ❤️'},
+{d:63,m:3,w:9,t:'sp',nl:'Oefen: eens of oneens zijn',ar:'تدرب على الموافقة والاختلاف بطريقة هولندية',hw:'Ja, dat klopt! / Ik ben het er niet mee eens. / Dat is waar, maar... / Echt? 🤝'},
+{d:64,m:3,w:9,t:'vo',nl:'Leer 6 uitroepen en complimenten',ar:'تعلم التعجب والإطراء: Wauw! / Geweldig! / Knap! / Goed bezig! / Wat mooi! / Super!',hw:'هذه الكلمات تجعلك تبدو هولندياً حقيقياً — استخدمها مع زملاء العمل غداً! 🌟'},
+{d:65,m:3,w:9,t:'li',nl:'Kijk een YouTube-vlog in het Nederlands (5 min)',ar:'شاهد فيديو هولندي 5 دقائق بدون ترجمة',hw:'ابحث "dagvlog Nederlands" — حاول تفهم الموضوع العام وعدة تفاصيل 📺'},
+{d:66,m:3,w:9,t:'wr',nl:'Schrijf jouw mening over wonen in Nederland',ar:'اكتب رأيك عن العيش في هولندا — 5 جمل بالهولندية',hw:'Ik vind Nederland... / Het leuke is... / Het moeilijke is... / Gelukkig is... ✍️'},
+{d:67,m:3,w:9,t:'si',nl:'🎭 Simulatie: bespreek een film of restaurant',ar:'محاكاة: تحدث عن فيلم أو مطعم مع شخص — عبّر عن رأيك',hw:'Ik vond het erg leuk! / Het eten was lekker maar te duur. / Ik raad het aan. 🎬'},
+
+// W10 - التخطيط للمستقبل
+{d:68,m:3,w:10,t:'gr',nl:'Leer: toekomst met "gaan" + infinitief',ar:'تعلم صياغة المستقبل — بسيطة جداً!',hw:'Ik ga morgen... werken / eten / fietsen. / Volgende week ga ik naar... 🚀'},
+{d:69,m:3,w:10,t:'vo',nl:'Leer de maanden + datums lezen',ar:'تعلم قراءة التواريخ + متى تستخدم op / in / over',hw:'op maandag / in januari / over 3 dagen / volgende week / binnenkort 📅'},
+{d:70,m:3,w:10,t:'gr',nl:'Leer: uitnodigen, accepteren en afwijzen',ar:'تعلم الدعوة والقبول والرفض المهذب',hw:'Wil je meekomen? / Ja, leuk! / Helaas kan ik niet, want... / Misschien een andere keer 🎉'},
+{d:71,m:3,w:10,t:'sp',nl:'Vertel je plannen voor volgende week (5 zinnen)',ar:'قل خططك للأسبوع القادم — 5 جمل بصوت عالٍ',hw:'Maandag ga ik... / Woensdag heb ik een vergadering. / Dit weekend ga ik... 🗓️'},
+{d:72,m:3,w:10,t:'vo',nl:'Leer 6 verbindingswoorden (connectoren)',ar:'تعلم: en / maar / want / omdat / dus / ook',hw:'هذه الكلمات تحول جملك من قصيرة لطبيعية! Ik werk hard, want ik wil... 🔗'},
+{d:73,m:3,w:10,t:'wr',nl:'Schrijf een mail naar een collega over een afspraak',ar:'اكتب إيميل قصير لتحديد موعد اجتماع',hw:'Beste [naam], / Kun jij op [dag] om [tijd] afspreken? / Met vriendelijke groet, [naam] 📧'},
+{d:74,m:3,w:10,t:'si',nl:'🎭 Simulatie: plan een lunch met een collega',ar:'محاكاة: ادعُ زميلاً للغداء + تفاوض على الموعد + حدد المكان',hw:'Heb jij tijd voor de lunch? / Wanneer schikt het? / Laten we naar... gaan! 🍽️'},
+
+// W11 - الخدمات والتقنية
+{d:75,m:3,w:11,t:'vo',nl:'Leer 6 digitale + overheidswoorden',ar:'تعلم: gemeente / DigiD / BSN / aanvragen / formulier / inloggen',hw:'هذه الكلمات ستحتاجها في كل تعاملاتك الرسمية في هولندا 🏛️'},
+{d:76,m:3,w:11,t:'gr',nl:'Leer formeel vs informeel taalgebruik',ar:'تعلم الفرق بين اللغة الرسمية وغير الرسمية',hw:'U (رسمي) vs Jij (عادي) / Geachte vs Hoi / Met vriendelijke groet vs Doei 👔'},
+{d:77,m:3,w:11,t:'vo',nl:'Leer bankwoorden (6)',ar:'تعلم: rekening / overmaken / pinnen / saldo / huur / kosten',hw:'Ik wil geld overmaken. / Hoeveel is mijn saldo? / Ik betaal de huur op de eerste. 💳'},
+{d:78,m:3,w:11,t:'li',nl:'Luister naar een Nederlandse podcast (5 min)',ar:'استمع لبودكاست هولندي — ركز على الكلمات المألوفة',hw:'ابحث "Spraakmakers NTR" أو "Dit is de dag" — حاول تفهم 30% من المحتوى 🎙️'},
+{d:79,m:3,w:11,t:'sp',nl:'Oefen een telefoongesprek met een instantie',ar:'تدرب على الاتصال بجهة رسمية — الأصعب والأهم!',hw:'Goedemorgen, ik bel voor... / Ik wil een afspraak maken voor... / Kunt u mij doorverbinden? ☎️'},
+{d:80,m:3,w:11,t:'wr',nl:'Schrijf een formele mail naar de gemeente',ar:'اكتب إيميل رسمي قصير لبلدية أرنهيم',hw:'Geachte heer/mevrouw, / Ik schrijf u voor... / Kunt u mij helpen met...? / Met vriendelijke groet 📝'},
+{d:81,m:3,w:11,t:'si',nl:'🎭 Simulatie: bel de bank of gemeente',ar:'محاكاة: اتصل بالبنك أو البلدية — كل الحوار رسمي بالكامل',hw:'هذا التحدي الأصعب في الخطة — لكنك جاهز له الآن! 💪'},
+
+// W12 - المراجعة الكبرى والاختبار النهائي
+{d:82,m:3,w:12,t:'rv',nl:'🔁 Superherhaling: alles van Maand 1',ar:'مراجعة خارقة للشهر الأول — كل شيء في 10 دقائق',hw:'تحيات + كافيه + عمل + مدينة — اكتب جملة واحدة عن كل موضوع 🔄'},
+{d:83,m:3,w:12,t:'rv',nl:'🔁 Superherhaling: alles van Maand 2',ar:'مراجعة خارقة للشهر الثاني',hw:'عائلة + طقس + صحة + ماضي — قل فقرة عن كل موضوع بصوت عالٍ 🔄'},
+{d:84,m:3,w:12,t:'rv',nl:'🔁 Superherhaling: alles van Maand 3',ar:'مراجعة خارقة للشهر الثالث',hw:'آراء + مستقبل + خدمات — اكتب رسالة إيميل تجمع كل هذه المهارات 🔄'},
+{d:85,m:3,w:12,t:'sp',nl:'Oefen: 3-minuten monoloog over jezelf',ar:'تدرب على حديث 3 دقائق متواصل عن نفسك بالهولندية',hw:'اسمك + بلدك + عملك + عائلتك + هواياتك + خططك — 3 دقائق بلا توقف! ⏱️'},
+{d:86,m:3,w:12,t:'si',nl:'🎭 Scenario 1: een dag op je werk',ar:'محاكاة يوم عمل كامل: صباح + اجتماع + طلب مساعدة + غداء مع زميل',hw:'4 مواقف مختلفة في حوار واحد متواصل — هذا هو المستوى الذي وصلت إليه! 💼'},
+{d:87,m:3,w:12,t:'si',nl:'🎭 Scenario 2: een avondje uit in Arnhem',hw:'مطعم + سينما + محطة + محادثة مع غريب — كل Arnhem بالهولندية!',ar:'محاكاة خروج في أرنهيم: مطعم + سينما + سؤال عن طريق + إعلان هاتف في المحطة'},
+{d:88,m:3,w:12,t:'li',nl:'Kijk NOS Journaal — 5 minuten begrijpen',ar:'شاهد نشرة أخبار NOS 5 دقائق — قيّم كم تفهم',hw:'ابحث "NOS Journaal vandaag" — حاول تفهم الموضوع العام + 3 تفاصيل 📺'},
+{d:89,m:3,w:12,t:'wr',nl:'Schrijf: mijn Nederlands-reis in 10 zinnen',ar:'اكتب 10 جمل عن رحلتك في تعلم الهولندية',hw:'Drie maanden geleden kon ik niets. Nu kan ik... / Het moeilijkste was... / Het leukste was... 🗒️'},
+{d:90,m:3,w:12,t:'ch',nl:'🏆 EINDTEST: 5 minuten vrij spreken!',ar:'الاختبار النهائي الكبير — 5 دقائق كلام هولندي حر متواصل!',hw:'أي موضوع تختاره — عائلتك؟ عملك؟ هولندا؟ — 5 دقائق متواصلة هي الهدف. Gefeliciteerd! 🎓'}
+];
+
+const WN={
+  1:'التحيات والتعريف',2:'الكافيه والطعام',3:'العمل والمكتب',4:'المدينة والتسوق',
+  5:'العائلة والمنزل',6:'الطقس والمحادثة',7:'الصحة والطبيب',8:'الزمن الماضي',
+  9:'الآراء والمشاعر',10:'المستقبل والتخطيط',11:'الخدمات الرسمية',12:'المراجعة الكبرى'
+};
+const WBC={1:'wb1',2:'wb2',3:'wb3',4:'wb4',5:'wb5',6:'wb6',7:'wb7',8:'wb8',9:'wb9',10:'wb10',11:'wb11',12:'wb12'};
+const MG={1:'🌱 البقاء — تتعامل مع أي موقف أساسي',2:'🚀 التوسع — تتحدث في أي موقف يومي',3:'💬 المحادثة — تجري حوار حقيقي لـ5 دقائق'};
+const MC={1:'m1',2:'m2',3:'m3'};
+
+let done=JSON.parse(localStorage.getItem('nl90')||'{}');
+let cf=0; // current filter (0=all, 1-3=month)
+
+function save(){localStorage.setItem('nl90',JSON.stringify(done));}
+
+function countDone(){return Object.values(done).filter(Boolean).length;}
+function countMonth(m){return TASKS.filter(t=>t.m===m&&done[t.d]).length;}
+
+function updateUI(){
+  const c=countDone();
+  document.getElementById('dc').textContent=c;
+  // streak
+  let s=0;for(let i=90;i>=1;i--){if(done[i])s++;else break;}
+  document.getElementById('sc').textContent=s;
+  // ring
+  const pct=Math.round(c/90*100);
+  document.getElementById('rp').textContent=pct+'%';
+  document.getElementById('rf').style.strokeDashoffset=195-(195*c/90);
+  // bar
+  document.getElementById('pb').style.width=pct+'%';
+  document.getElementById('pt').textContent=c+' من 90 يوم مكتملاً';
+  // month bars
+  [1,2,3].forEach(m=>{
+    const mc=countMonth(m);
+    document.getElementById('mb'+m).style.width=(mc/30*100)+'%';
+    document.getElementById('mp'+m).textContent=mc+'/30';
+  });
+  if(c===90)document.getElementById('doneBanner').classList.add('show');
+}
+
+function toggle(d){
+  done[d]=!done[d];
+  save();
+  const card=document.getElementById('tc'+d);
+  if(done[d]){
+    card.classList.add('done','just-done');
+    setTimeout(()=>card.classList.remove('just-done'),400);
+    popConfetti();
+  } else {
+    card.classList.remove('done');
+  }
+  updateUI();
+  // update cbox
+  const cmark=card.querySelector('.cmark');
+  if(cmark)cmark.style.opacity=done[d]?'1':'0';
+  const cbox=card.querySelector('.cbox');
+  if(cbox){
+    cbox.style.background=done[d]?'var(--gr)':'#fff';
+    cbox.style.borderColor=done[d]?'var(--gr)':'var(--bd)';
+  }
+  // update tc styling
+  const tnl=card.querySelector('.tnl');
+  if(tnl)tnl.style.color=done[d]?'var(--gr)':'var(--bl)';
+  const tside=card.querySelector('.tc-side');
+  if(tside){
+    tside.style.background=done[d]?'#E6F9F0':'#F4F2EE';
+    tside.style.borderColor=done[d]?'#A7F3D0':'var(--bd)';
+  }
+}
+
+function ft(m,el){
+  cf=m;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  el.classList.add('on');
+  render();
+}
+
+function render(){
+  const months=cf===0?[1,2,3]:[cf];
+  let html='';
+  const mTitles={1:'الشهر الأول',2:'الشهر الثاني',3:'الشهر الثالث'};
+
+  for(const m of months){
+    html+=`<div class="mhdr ${MC[m]}">
+      <div class="mhdr-title">${['','🌱','🚀','💬'][m]} ${mTitles[m]}</div>
+      <div class="mhdr-goal">${MG[m]}</div>
+      <div class="mhdr-pills">
+        <span class="mpill">4 أسابيع</span>
+        <span class="mpill">${['','30','30','30'][m]} يوماً</span>
+        <span class="mpill">A${m===1?'0→A1':m===2?'1→A2':'2→B1'}</span>
+      </div>
+    </div>`;
+
+    const weeks=[...new Set(TASKS.filter(t=>t.m===m).map(t=>t.w))];
+    for(const w of weeks){
+      const wtasks=TASKS.filter(t=>t.w===w);
+      const wdone=wtasks.filter(t=>done[t.d]).length;
+      const isFirst=weeks.indexOf(w)===0;
+      html+=`<div class="wsec">
+        <div class="whdr${isFirst?' open':''}" onclick="toggleW(this)">
+          <span class="wbadge ${WBC[w]}">أسبوع ${w}</span>
+          <span class="wtitle">${WN[w]}</span>
+          <span class="wcount">${wdone}/7 ✅</span>
+          <span class="warrow${isFirst?' open':''}">▾</span>
+        </div>
+        <div class="wbody${isFirst?' open':''}">`;
+
+      for(const t of wtasks){
+        const isDone=!!done[t.d];
+        html+=`<div class="tc${isDone?' done':''}" id="tc${t.d}" onclick="toggle(${t.d})">
+          <div class="tc-inner">
+            <div class="tc-body">
+              <div class="tc-meta">
+                <span class="dlabel">يوم ${t.d}</span>
+                <span class="ttag ${TC[t.t]}">${T[t.t]}</span>
+                ${isDone?'<span style="font-size:10px;color:var(--gr);font-weight:700">مكتمل ✓</span>':''}
+              </div>
+              <div class="tnl" style="color:${isDone?'var(--gr)':'var(--bl)'}">${t.nl}</div>
+              <div class="tar">${t.ar}</div>
+              <div class="thow">💡 ${t.hw}</div>
+            </div>
+            <div class="tc-side" style="background:${isDone?'#E6F9F0':'#F4F2EE'};border-color:${isDone?'#A7F3D0':'var(--bd)'}">
+              <div class="dnum d-m${t.m}">${t.d}</div>
+              <div class="cbox" style="background:${isDone?'var(--gr)':'#fff'};border-color:${isDone?'var(--gr)':'var(--bd)'}">
+                <span class="cmark" style="opacity:${isDone?1:0}">✓</span>
+              </div>
+            </div>
+          </div>
+        </div>`;
+      }
+      html+='</div></div>';
+    }
+  }
+  document.getElementById('main').innerHTML=html;
+}
+
+function toggleW(hdr){
+  const body=hdr.nextElementSibling;
+  const arrow=hdr.querySelector('.warrow');
+  const open=body.classList.contains('open');
+  body.classList.toggle('open',!open);
+  arrow.classList.toggle('open',!open);
+  hdr.classList.toggle('open',!open);
+}
+
+function popConfetti(){
+  const w=document.getElementById('cf');
+  w.innerHTML='';w.classList.add('show');
+  const cols=['#E55A00','#003893','#FFD700','#0A8F5C','#FF6B6B','#fff'];
+  for(let i=0;i<50;i++){
+    const el=document.createElement('div');
+    const sz=Math.random()*8+4;
+    el.style.cssText=`position:absolute;width:${sz}px;height:${sz}px;background:${cols[Math.floor(Math.random()*cols.length)]};border-radius:${Math.random()>.5?'50%':'2px'};left:${Math.random()*100}%;top:-20px;animation:fall ${1+Math.random()*1.5}s linear forwards`;
+    w.appendChild(el);
+  }
+  setTimeout(()=>{w.classList.remove('show');w.innerHTML='';},2500);
+}
+
+function doReset(){
+  if(confirm('إعادة تعيين كل التقدم؟ هذا لا يمكن التراجع عنه!')){
+    done={};save();render();updateUI();
+  }
+}
+
+render();updateUI();
+</script>
+</body>
+</html>
